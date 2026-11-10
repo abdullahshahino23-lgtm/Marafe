@@ -3,120 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>مرافئ | MARAFE’ — معاينة</title>
+<title>مرافئ | لوحة الأدمن — معاينة</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F8F3E6;--sf:#FFFDF7;--tx:#062E33;--hd:#0A4A52;--pr:#0F5F68;--onpr:#FFFDF7;--ac:#B8913A;--bd:rgba(184,145,58,.4);--mut:#4d6f73;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;color-scheme:dark}
+:root{--bg:#F8F3E6;--sf:#FFFDF7;--tx:#062E33;--hd:#0A4A52;--pr:#0F5F68;--onpr:#FFFDF7;--ac:#B8913A;--bd:rgba(184,145,58,.4);--mut:#4d6f73;--ok:#2E7D5B;--er:#B3382C;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;--er:#E57A6E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;--er:#E57A6E;color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,sans-serif;line-height:1.6}
-.app{max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:84px;position:relative}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
-.logo{font-family:Amiri,serif;font-size:28px;color:var(--ac);font-weight:700;line-height:1}
-.logo small{display:block;font-family:Cairo,sans-serif;font-size:10px;color:var(--mut);font-weight:400;letter-spacing:.3px}
-.tools button{background:var(--sf);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:6px 10px;font:600 13px Cairo;margin-inline-start:6px;cursor:pointer}
-.quote{margin:4px 16px 16px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#062E33,#0F5F68);color:#F8F3E6;border:1px solid #B8913A;position:relative}
-.quote h4{margin:0 0 6px;font-size:12px;color:#D9BC73;font-weight:600}
-.quote p{margin:0;font-family:Amiri,serif;font-size:22px;line-height:1.8}
-.quote span{display:block;margin-top:8px;font-size:12px;color:#D9BC73}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px 8px;scrollbar-width:none}
-.chip{white-space:nowrap;padding:7px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--sf);font:600 13px Cairo;color:var(--tx);cursor:pointer}
-.chip.on{background:var(--pr);color:var(--onpr);border-color:var(--pr)}
-h3{font-family:Amiri,serif;color:var(--hd);font-size:22px;margin:18px 16px 10px}
-.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}
-.book{flex:0 0 140px;background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:8px;cursor:pointer}
-.cover{height:170px;border-radius:10px;display:flex;align-items:flex-end;padding:10px;font-family:Amiri,serif;font-size:17px;color:#F8F3E6;font-weight:700;line-height:1.3;border:1px solid rgba(184,145,58,.6)}
-.b1{background:linear-gradient(160deg,#0F5F68,#062E33)}.b2{background:linear-gradient(160deg,#8C6A1F,#3b2c0b)}.b3{background:linear-gradient(160deg,#2A8791,#0A4A52)}.b4{background:linear-gradient(160deg,#4a3b14,#062E33)}
-.book b{display:block;font-size:13px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.book small{color:var(--mut);font-size:12px}
-.meta{display:flex;justify-content:space-between;align-items:center;margin-top:4px;font-size:12px}
-.price{color:var(--ac);font-weight:700}.free{color:#2E7D5B;font-weight:700}
-.badge{display:inline-block;font-size:10px;padding:1px 7px;border-radius:99px;background:var(--ac);color:#062E33;font-weight:700;margin-inline-start:4px}
-.card{margin:0 16px 10px;padding:14px;background:var(--sf);border:1px solid var(--bd);border-radius:16px}
-.card h5{margin:0 0 2px;font-size:15px}.card p{margin:0;color:var(--mut);font-size:13px}
-nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--sf);border-top:1px solid var(--bd);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
-nav button{flex:1;background:none;border:0;color:var(--mut);font:600 11px Cairo;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
-nav button i{font-style:normal;font-size:20px}
-nav button.on{color:var(--ac)}
-.sheet{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;z-index:20}
-.sheet.show{display:flex}
-.panel{width:100%;max-width:480px;margin:0 auto;background:var(--bg);border-radius:24px 24px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));border-top:2px solid var(--ac)}
-.panel h4{font-family:Amiri,serif;font-size:22px;color:var(--hd);margin:0 0 4px}
-.m{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:8px 0;border:1px solid var(--bd);border-radius:12px;background:var(--sf);cursor:pointer;font-weight:600;font-size:14px}
-.m.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac) inset}
-.m em{font-style:normal;font-weight:400;color:var(--mut);font-size:12px;margin-inline-start:auto}
-.btn{width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;background:var(--pr);color:var(--onpr);font:700 15px Cairo;cursor:pointer}
-.split{font-size:12px;color:var(--mut);margin-top:8px}
-.foot{text-align:center;color:var(--mut);font-size:11px;padding:20px}
+.top{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--sf);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5}
+.logo{font-family:Amiri,serif;font-size:24px;color:var(--ac);font-weight:700;margin-inline-end:auto;line-height:1.1}
+.logo small{font:400 10px Cairo;color:var(--mut);display:block}
+.tb{background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:6px 10px;font:600 13px Cairo;cursor:pointer}
+.wrap{display:flex;min-height:calc(100vh - 56px)}
+aside{width:230px;background:var(--sf);border-inline-end:1px solid var(--bd);padding:10px;flex-shrink:0}
+aside button{display:flex;gap:10px;align-items:center;width:100%;text-align:start;background:none;border:0;color:var(--tx);padding:10px 12px;border-radius:12px;font:600 14px Cairo;cursor:pointer}
+aside button.on{background:var(--pr);color:var(--onpr)}
+aside button b{background:var(--ac);color:#062E33;border-radius:99px;font-size:11px;padding:0 7px;margin-inline-start:auto}
+main{flex:1;padding:16px;min-width:0}
+h2{font-family:Amiri,serif;color:var(--hd);font-size:26px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:10px}
+.stat .v{font-size:26px;font-weight:700;color:var(--hd)}.stat .l{color:var(--mut);font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.btn{border:0;border-radius:10px;padding:8px 14px;font:600 13px Cairo;cursor:pointer;background:var(--pr);color:var(--onpr)}
+.btn.o{background:none;border:1px solid var(--ac);color:var(--ac)}.btn.r{background:none;border:1px solid var(--er);color:var(--er)}
+.tag{display:inline-block;font-size:11px;padding:1px 9px;border-radius:99px;border:1px solid var(--bd);color:var(--mut)}
+.tag.ok{color:var(--ok);border-color:var(--ok)}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px}
+.chip{white-space:nowrap;padding:6px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);font:600 13px Cairo;cursor:pointer}
+.chip.on{background:var(--pr);color:var(--onpr)}
+.sw{position:relative;width:42px;height:24px;background:var(--bd);border-radius:99px;cursor:pointer;flex-shrink:0;border:0}
+.sw::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.15s}
+.sw.on{background:var(--ok)}.sw.on::after{inset-inline-start:21px}
+.line{display:flex;align-items:center;gap:10px}.line .g{flex:1}
+input[type=number]{width:110px;padding:8px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:600 15px Cairo}
+.calc{background:var(--bg);border:1px dashed var(--ac);border-radius:12px;padding:10px;margin-top:10px;font-size:14px}
+.mob{display:none}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline:16px;margin:auto;max-width:340px;background:var(--pr);color:var(--onpr);padding:10px 14px;border-radius:12px;text-align:center;display:none;z-index:9}
+.note{font-size:12px;color:var(--mut);text-align:center;padding:14px}
+@media(max-width:860px){aside{display:none}.mob{display:flex}}
 .view{display:none}.view.on{display:block}
 </style>
 </head>
 <body>
-<div class="app">
-<header>
-  <div class="logo"><span data-t="appName">مرافئ</span><small data-t="tagline">حيث تجد الحكايات مرفأها</small></div>
-  <div class="tools"><button id="lang">EN</button><button id="theme">◐</button></div>
-</header>
+<div class="top"><div class="logo"><span data-t="app">مرافئ</span><small data-t="adm">لوحة الأدمن</small></div><button class="tb" id="lang">EN</button><button class="tb" id="theme">◐</button></div>
+<div class="chips mob" id="mnav" style="padding:10px 14px 0"></div>
+<div class="wrap"><aside id="side"></aside><main>
 
-<section class="view on" id="v-home">
-  <div class="quote"><h4 data-t="dq">اقتباس اليوم</h4><p data-t="q">«الكتابة مرفأٌ نعود إليه كلما أضاعتنا العواصف.»</p><span data-t="qa">— مرافئ</span></div>
-  <div class="chips">
-    <div class="chip on" data-t="all">الكل</div><div class="chip" data-t="poetry">الشعر</div><div class="chip" data-t="lit">الأدب</div><div class="chip" data-t="arts">الفنون</div><div class="chip" data-t="arts2">المقالات</div>
-  </div>
-  <h3 data-t="trend">الأكثر رواجاً</h3>
-  <div class="row" id="books"></div>
-  <h3 data-t="comp">مسابقة الشهر</h3>
-  <div class="card"><h5 data-t="compT">مسابقة القصة القصيرة</h5><p data-t="compD">شارك بنصّك قبل نهاية الشهر وربح نشر كتابك مجاناً.</p></div>
-  <h3 data-t="authors">كتّاب مميزون</h3>
-  <div class="card"><h5>أمل الحارثي <span class="badge" data-t="gold">داعم ذهبي</span></h5><p data-t="aD">شاعرة · ١٢ كتاباً · ٣٫٢ ألف متابع</p></div>
-</section>
+<section class="view on" id="v0"><h2 data-t="t0"></h2><div class="grid" id="stats"></div></section>
 
-<section class="view" id="v-market"><h3 data-t="market">سوق الكتب</h3><div class="row" id="books2" style="flex-wrap:wrap"></div></section>
-<section class="view" id="v-lib"><h3 data-t="lib">مكتبتي</h3><div class="card"><h5 data-t="libE">لا توجد كتب بعد</h5><p data-t="libD">الكتب التي تشتريها تُفتح هنا تلقائياً بعد تأكيد الدفع.</p></div></section>
-<section class="view" id="v-prof"><h3 data-t="prof">الملف الشخصي</h3>
-  <div class="card"><h5 data-t="pub">انشر كتاباً أو مقالاً</h5><p data-t="pubD">ارفع PDF وغلافاً، حدّد السعر، وتابع أرباحك.</p></div>
-  <div class="card"><h5 data-t="gs">داعم ذهبي — ٥٠ ج.م</h5><p data-t="gsD">شارة اختيارية، منفصلة عن توثيق الهوية.</p></div>
-</section>
-<div class="foot" data-t="pw">Powered by SHAHINO AI</div>
-</div>
+<section class="view" id="v1"><h2 data-t="t1"></h2>
+ <div id="ords"></div></section>
 
-<nav>
-  <button class="on" data-v="home"><i>⌂</i><span data-t="home">الرئيسية</span></button>
-  <button data-v="market"><i>❖</i><span data-t="market">السوق</span></button>
-  <button data-v="lib"><i>▤</i><span data-t="lib">مكتبتي</span></button>
-  <button data-v="prof"><i>☺</i><span data-t="prof">حسابي</span></button>
-</nav>
+<section class="view" id="v2"><h2 data-t="t2"></h2><div id="meth"></div><button class="btn" id="addm" data-t="addm"></button></section>
 
-<div class="sheet" id="sheet"><div class="panel">
-  <h4 id="sT"></h4>
-  <div class="split" id="sSplit"></div>
-  <h5 style="margin:14px 0 0" data-t="payWith">اختر طريقة الدفع</h5>
-  <div class="m on">InstaPay<em data-t="auto">تحقق تلقائي</em></div>
-  <div class="m">Vodafone Cash<em data-t="manual">مراجعة الإيصال</em></div>
-  <div class="m">Orange Cash<em data-t="manual">مراجعة الإيصال</em></div>
-  <div class="m"><span data-t="bank">تحويل بنكي</span><em data-t="manual">مراجعة الإيصال</em></div>
-  <button class="btn" id="close" data-t="cont">متابعة الدفع</button>
-</div></div>
+<section class="view" id="v3"><h2 data-t="t3"></h2><div id="bks"></div></section>
+
+<section class="view" id="v4"><h2 data-t="t4"></h2><div id="usr"></div></section>
+
+<section class="view" id="v5"><h2 data-t="t5"></h2>
+ <div class="card"><b data-t="comm"></b>
+  <div class="row"><input type="number" id="pct" value="15" min="0" max="50" step="0.5"> %<span style="margin-inline-start:12px"></span><input type="number" id="price" value="100"> <span data-t="egp"></span></div>
+  <div class="calc" id="calc"></div></div>
+ <div class="card line"><span class="g" data-t="gp"></span><input type="number" id="gold" value="50" style="width:90px"></div>
+ <div class="card line"><span class="g" data-t="auto"></span><button class="sw" id="autoSw"></button></div>
+ <button class="btn" id="save" data-t="save"></button></section>
+
+<div class="note" data-t="pw">Powered by SHAHINO AI</div>
+</main></div>
+<div class="toast" id="toast"></div>
 
 <script>
-var D={ar:{appName:'مرافئ',tagline:'حيث تجد الحكايات مرفأها',dq:'اقتباس اليوم',q:'«الكتابة مرفأٌ نعود إليه كلما أضاعتنا العواصف.»',qa:'— مرافئ',all:'الكل',poetry:'الشعر',lit:'الأدب',arts:'الفنون',arts2:'المقالات',trend:'الأكثر رواجاً',comp:'مسابقة الشهر',compT:'مسابقة القصة القصيرة',compD:'شارك بنصّك قبل نهاية الشهر وربح نشر كتابك مجاناً.',authors:'كتّاب مميزون',gold:'داعم ذهبي',aD:'شاعرة · ١٢ كتاباً · ٣٫٢ ألف متابع',market:'سوق الكتب',lib:'مكتبتي',libE:'لا توجد كتب بعد',libD:'الكتب التي تشتريها تُفتح هنا تلقائياً بعد تأكيد الدفع.',prof:'حسابي',pub:'انشر كتاباً أو مقالاً',pubD:'ارفع PDF وغلافاً، حدّد السعر، وتابع أرباحك.',gs:'داعم ذهبي — ٥٠ ج.م',gsD:'شارة اختيارية، منفصلة عن توثيق الهوية.',pw:'Powered by SHAHINO AI',home:'الرئيسية',payWith:'اختر طريقة الدفع',auto:'تحقق تلقائي',manual:'مراجعة الإيصال',bank:'تحويل بنكي',cont:'متابعة الدفع',free:'مجاني',egp:'ج.م',buy:'شراء: ',net:'عمولة المنصة ١٥٪ — صافي الكاتب: '},
-en:{appName:'MARAFE’',tagline:'Where Stories Find Their Harbor',dq:'Daily quote',q:'“Writing is a harbor we return to whenever storms lose us.”',qa:'— MARAFE’',all:'All',poetry:'Poetry',lit:'Literature',arts:'Arts',arts2:'Articles',trend:'Trending',comp:'Competition of the month',compT:'Short story contest',compD:'Submit your text before month-end and win free publishing.',authors:'Featured authors',gold:'Gold Supporter',aD:'Poet · 12 books · 3.2K followers',market:'Marketplace',lib:'My library',libE:'No books yet',libD:'Books you buy unlock here automatically once payment is confirmed.',prof:'Profile',pub:'Publish a book or article',pubD:'Upload a PDF and cover, set a price, track your earnings.',gs:'Gold Supporter — 50 EGP',gsD:'Optional badge, separate from identity verification.',pw:'Powered by SHAHINO AI',home:'Home',payWith:'Choose a payment method',auto:'Auto-verified',manual:'Receipt review',bank:'Bank transfer',cont:'Continue to pay',free:'Free',egp:'EGP',buy:'Buy: ',net:'Platform fee 15% — author net: '}};
-var B=[{t:{ar:'ليالي المرفأ',en:'Harbor Nights'},a:{ar:'أمل الحارثي',en:'Amal Al-Harthy'},p:60,c:'b1'},{t:{ar:'ديوان الرمال',en:'Diwan of Sands'},a:{ar:'خالد منصور',en:'Khaled Mansour'},p:0,c:'b2'},{t:{ar:'حكايات النيل',en:'Nile Tales'},a:{ar:'سلمى عادل',en:'Salma Adel'},p:45,c:'b3'},{t:{ar:'قناديل',en:'Lanterns'},a:{ar:'يوسف رمزي',en:'Youssef Ramzy'},p:80,c:'b4'}];
 var L='ar',root=document.documentElement;
+var D={ar:{app:'مرافئ',adm:'لوحة الأدمن',pw:'Powered by SHAHINO AI — معاينة بيانات تجريبية',t0:'الإحصائيات',t1:'الطلبات والمدفوعات',t2:'طرق الدفع',t3:'مراجعة الكتب',t4:'المستخدمون والشارات',t5:'الإعدادات والعمولة',egp:'ج.م',
+ users:'المستخدمون',books:'كتب منشورة',rev:'بانتظار المراجعة',gross:'إجمالي المبيعات',plat:'إيراد المنصة',auth:'أرباح الكتّاب',
+ confirm:'تأكيد الدفع',reject:'رفض',receipt:'عرض الإيصال',buyer:'المشتري',addm:'+ إضافة طريقة دفع',approve:'موافقة ونشر',hide:'إخفاء',block:'حظر',
+ ver:'موثّق',gold:'داعم ذهبي',comm:'عمولة المنصة وحاسبة الأرباح',gp:'سعر شارة الداعم الذهبي (ج.م)',auto:'نشر الكتب تلقائياً دون موافقة',save:'حفظ الإعدادات',saved:'تم الحفظ ✓',done:'تم التأكيد — الكتاب مفتوح للمشتري ✓',rej:'تم الرفض',
+ fee:'عمولة المنصة',net:'صافي الكاتب',man:'مراجعة إيصال',autov:'تحقق تلقائي (Webhook)',empty:'لا توجد عناصر',newm:'تمت إضافة طريقة دفع جديدة ✓'},
+en:{app:'MARAFE’',adm:'Admin dashboard',pw:'Powered by SHAHINO AI — sample data preview',t0:'Overview',t1:'Orders & payments',t2:'Payment methods',t3:'Book review',t4:'Users & badges',t5:'Settings & commission',egp:'EGP',
+ users:'Users',books:'Published books',rev:'Awaiting review',gross:'Gross sales',plat:'Platform revenue',auth:'Authors’ earnings',
+ confirm:'Confirm payment',reject:'Reject',receipt:'View receipt',buyer:'Buyer',addm:'+ Add payment method',approve:'Approve & publish',hide:'Hide',block:'Block',
+ ver:'Verified',gold:'Gold Supporter',comm:'Platform commission & earnings calculator',gp:'Gold Supporter price (EGP)',auto:'Auto-publish books without approval',save:'Save settings',saved:'Saved ✓',done:'Confirmed — book unlocked for the buyer ✓',rej:'Rejected',
+ fee:'Platform fee',net:'Author net',man:'Receipt review',autov:'Auto-verified (Webhook)',empty:'Nothing here',newm:'New payment method added ✓'}};
+var tabs=[['⌂','t0'],['▤','t1'],['◈','t2'],['❖','t3'],['☺','t4'],['⚙','t5']];
+var orders=[{r:'MRF-A41C9E',a:60,b:['سلمى عادل','Salma Adel'],m:'Vodafone Cash',v:'man'},{r:'MRF-77D20B',a:80,b:['يوسف رمزي','Youssef Ramzy'],m:'InstaPay',v:'auto'},{r:'MRF-5E0F13',a:50,b:['أمل الحارثي','Amal Al-Harthy'],m:'Orange Cash',v:'man',g:1}];
+var meth=[['InstaPay',1,'auto'],['Vodafone Cash',1,'man'],['Orange Cash',1,'man'],['Etisalat Cash',0,'man'],['تحويل بنكي / Bank',1,'man']];
+var bks=[['ليالي المرفأ','Harbor Nights',60,'b1'],['قناديل','Lanterns',80,'b4'],['ديوان الرمال','Diwan of Sands',0,'b2']];
+var usr=[['أمل الحارثي','Amal Al-Harthy',1,1],['خالد منصور','Khaled Mansour',0,0],['سلمى عادل','Salma Adel',0,1]];
 function T(k){return D[L][k]}
-function card(b,i){var pr=b.p?'<span class="price">'+b.p+' '+T('egp')+'</span>':'<span class="free">'+T('free')+'</span>';return '<div class="book" data-i="'+i+'"><div class="cover '+b.c+'">'+b.t[L]+'</div><b>'+b.t[L]+'</b><small>'+b.a[L]+'</small><div class="meta"><span>★ 4.'+(5+i)+'</span>'+pr+'</div></div>'}
-function render(){root.lang=L;root.dir=L=='ar'?'rtl':'ltr';document.getElementById('lang').textContent=L=='ar'?'EN':'ع';
+function I(a){return L=='ar'?a[0]:a[1]}
+function sw(on,id){return '<button class="sw'+(on?' on':'')+'" data-sw="'+id+'"></button>'}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(window._t);window._t=setTimeout(function(){t.style.display='none'},2200)}
+function render(){
+ root.lang=L;root.dir=L=='ar'?'rtl':'ltr';document.title=T('app')+' — '+T('adm');document.getElementById('lang').textContent=L=='ar'?'EN':'ع';
  document.querySelectorAll('[data-t]').forEach(function(e){e.textContent=T(e.dataset.t)});
- var h=B.map(card).join('');document.getElementById('books').innerHTML=h;document.getElementById('books2').innerHTML=h;document.title=T('appName')}
+ var cur=+(document.querySelector('.view.on').id.slice(1));
+ var nb=orders.length;
+ document.getElementById('side').innerHTML=tabs.map(function(t,i){return '<button data-i="'+i+'" class="'+(i==cur?'on':'')+'"><span>'+t[0]+'</span>'+T(t[1])+(i==1&&nb?'<b>'+nb+'</b>':'')+'</button>'}).join('');
+ document.getElementById('mnav').innerHTML=tabs.map(function(t,i){return '<div class="chip'+(i==cur?' on':'')+'" data-i="'+i+'">'+t[0]+' '+T(t[1])+'</div>'}).join('');
+ var st=[['users','1,284'],['books','342'],['rev',nb],['gross','48,720'],['plat','7,308'],['auth','41,412']];
+ document.getElementById('stats').innerHTML=st.map(function(s,i){return '<div class="card stat"><div class="v">'+s[1]+'</div><div class="l">'+T(s[0])+(i>2?' · '+T('egp'):'')+'</div></div>'}).join('');
+ document.getElementById('ords').innerHTML=orders.length?orders.map(function(o,i){return '<div class="card"><b>'+o.r+' · '+o.a+' '+T('egp')+'</b> <span class="tag'+(o.v=='auto'?' ok':'')+'">'+T(o.v=='auto'?'autov':'man')+'</span><div style="color:var(--mut);font-size:13px">'+T('buyer')+': '+I(o.b)+' · '+o.m+(o.g?' · ★ '+T('gold'):'')+'</div><div class="row"><button class="btn o" data-rc="'+i+'">'+T('receipt')+'</button><button class="btn" data-ok="'+i+'">'+T('confirm')+'</button><button class="btn r" data-no="'+i+'">'+T('reject')+'</button></div></div>'}).join(''):'<div class="card">'+T('empty')+'</div>';
+ document.getElementById('meth').innerHTML=meth.map(function(m,i){return '<div class="card line">'+sw(m[1],'m'+i)+'<span class="g"><b>'+m[0]+'</b><br><span class="tag">'+T(m[2]=='auto'?'autov':'man')+'</span></span></div>'}).join('');
+ document.getElementById('bks').innerHTML=bks.map(function(b,i){return '<div class="card line"><div style="width:48px;height:66px;border-radius:8px;border:1px solid var(--ac);background:linear-gradient(160deg,#0F5F68,#062E33);flex-shrink:0"></div><span class="g"><b>'+I(b)+'</b><br><span style="color:var(--mut);font-size:13px">'+(b[2]?b[2]+' '+T('egp'):'—')+'</span><span class="row"><button class="btn" data-ap="'+i+'">'+T('approve')+'</button><button class="btn o" data-hd="'+i+'">'+T('hide')+'</button><button class="btn r" data-hd="'+i+'">'+T('block')+'</button></span></span></div>'}).join('');
+ document.getElementById('usr').innerHTML=usr.map(function(u,i){return '<div class="card line"><span class="g"><b>'+I(u)+'</b></span><span>'+T('ver')+'</span>'+sw(u[2],'v'+i)+'<span style="margin-inline-start:8px">'+T('gold')+'</span>'+sw(u[3],'g'+i)+'</div>'}).join('');
+ calc();
+}
+function calc(){var p=+document.getElementById('pct').value||0,pr=+document.getElementById('price').value||0;var f=Math.round(pr*p)/100;document.getElementById('calc').innerHTML=pr+' '+T('egp')+' → '+T('fee')+' <b>'+f.toFixed(2)+'</b> · '+T('net')+' <b>'+(pr-f).toFixed(2)+'</b> '+T('egp')}
+function go(i){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on')});document.getElementById('v'+i).classList.add('on');render()}
 document.getElementById('lang').onclick=function(){L=L=='ar'?'en':'ar';render()};
-document.getElementById('theme').onclick=function(){var d=root.getAttribute('data-theme');var cur=d||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');root.setAttribute('data-theme',cur=='dark'?'light':'dark')};
-document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on')});document.getElementById('v-'+b.dataset.v).classList.add('on')}});
-document.addEventListener('click',function(e){var b=e.target.closest('.book');if(b){var k=B[b.dataset.i];if(!k.p)return;document.getElementById('sT').textContent=T('buy')+k.t[L];var n=(k.p*.85).toFixed(2);document.getElementById('sSplit').textContent=T('net')+n+' '+T('egp');document.getElementById('sheet').classList.add('show')}
- var m=e.target.closest('.m');if(m){document.querySelectorAll('.m').forEach(function(x){x.classList.remove('on')});m.classList.add('on')}});
-document.getElementById('close').onclick=function(){document.getElementById('sheet').classList.remove('show')};
-document.getElementById('sheet').onclick=function(e){if(e.target.id=='sheet')e.currentTarget.classList.remove('show')};
+document.getElementById('theme').onclick=function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');root.setAttribute('data-theme',cur=='dark'?'light':'dark')};
+['pct','price'].forEach(function(id){document.getElementById(id).oninput=calc});
+document.getElementById('autoSw').onclick=function(){this.classList.toggle('on')};
+document.getElementById('save').onclick=function(){toast(T('saved'))};
+document.getElementById('addm').onclick=function(){meth.push(['Fawry / Paymob',1,'auto']);render();toast(T('newm'))};
+document.addEventListener('click',function(e){var t=e.target;
+ var n=t.closest('[data-i]');if(n){go(+n.dataset.i);return}
+ if(t.dataset.sw){t.classList.toggle('on');return}
+ if(t.dataset.ok){orders.splice(+t.dataset.ok,1);render();toast(T('done'))}
+ if(t.dataset.no){orders.splice(+t.dataset.no,1);render();toast(T('rej'))}
+ if(t.dataset.rc){toast('🧾 '+T('receipt'))}
+ if(t.dataset.ap){bks.splice(+t.dataset.ap,1);render();toast('✓')}
+ if(t.dataset.hd){bks.splice(+t.dataset.hd,1);render()}
+});
 render();
 </script>
 </body>
