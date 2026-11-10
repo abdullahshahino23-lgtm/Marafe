@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مرافئ | MARAFE’ — معاينة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F3E6;--sf:#FFFDF7;--tx:#062E33;--hd:#0A4A52;--pr:#0F5F68;--onpr:#FFFDF7;--ac:#B8913A;--bd:rgba(184,145,58,.4);--mut:#4d6f73;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1A1C;--sf:#12292C;--tx:#F8F3E6;--hd:#D9BC73;--pr:#2A8791;--onpr:#0B1A1C;--ac:#D9BC73;--bd:rgba(217,188,115,.35);--mut:#9db8bb;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,sans-serif;line-height:1.6}
+.app{max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:84px;position:relative}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+.logo{font-family:Amiri,serif;font-size:28px;color:var(--ac);font-weight:700;line-height:1}
+.logo small{display:block;font-family:Cairo,sans-serif;font-size:10px;color:var(--mut);font-weight:400;letter-spacing:.3px}
+.tools button{background:var(--sf);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:6px 10px;font:600 13px Cairo;margin-inline-start:6px;cursor:pointer}
+.quote{margin:4px 16px 16px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#062E33,#0F5F68);color:#F8F3E6;border:1px solid #B8913A;position:relative}
+.quote h4{margin:0 0 6px;font-size:12px;color:#D9BC73;font-weight:600}
+.quote p{margin:0;font-family:Amiri,serif;font-size:22px;line-height:1.8}
+.quote span{display:block;margin-top:8px;font-size:12px;color:#D9BC73}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px 8px;scrollbar-width:none}
+.chip{white-space:nowrap;padding:7px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--sf);font:600 13px Cairo;color:var(--tx);cursor:pointer}
+.chip.on{background:var(--pr);color:var(--onpr);border-color:var(--pr)}
+h3{font-family:Amiri,serif;color:var(--hd);font-size:22px;margin:18px 16px 10px}
+.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}
+.book{flex:0 0 140px;background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:8px;cursor:pointer}
+.cover{height:170px;border-radius:10px;display:flex;align-items:flex-end;padding:10px;font-family:Amiri,serif;font-size:17px;color:#F8F3E6;font-weight:700;line-height:1.3;border:1px solid rgba(184,145,58,.6)}
+.b1{background:linear-gradient(160deg,#0F5F68,#062E33)}.b2{background:linear-gradient(160deg,#8C6A1F,#3b2c0b)}.b3{background:linear-gradient(160deg,#2A8791,#0A4A52)}.b4{background:linear-gradient(160deg,#4a3b14,#062E33)}
+.book b{display:block;font-size:13px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.book small{color:var(--mut);font-size:12px}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:4px;font-size:12px}
+.price{color:var(--ac);font-weight:700}.free{color:#2E7D5B;font-weight:700}
+.badge{display:inline-block;font-size:10px;padding:1px 7px;border-radius:99px;background:var(--ac);color:#062E33;font-weight:700;margin-inline-start:4px}
+.card{margin:0 16px 10px;padding:14px;background:var(--sf);border:1px solid var(--bd);border-radius:16px}
+.card h5{margin:0 0 2px;font-size:15px}.card p{margin:0;color:var(--mut);font-size:13px}
+nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:var(--sf);border-top:1px solid var(--bd);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;background:none;border:0;color:var(--mut);font:600 11px Cairo;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button i{font-style:normal;font-size:20px}
+nav button.on{color:var(--ac)}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;z-index:20}
+.sheet.show{display:flex}
+.panel{width:100%;max-width:480px;margin:0 auto;background:var(--bg);border-radius:24px 24px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));border-top:2px solid var(--ac)}
+.panel h4{font-family:Amiri,serif;font-size:22px;color:var(--hd);margin:0 0 4px}
+.m{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:8px 0;border:1px solid var(--bd);border-radius:12px;background:var(--sf);cursor:pointer;font-weight:600;font-size:14px}
+.m.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac) inset}
+.m em{font-style:normal;font-weight:400;color:var(--mut);font-size:12px;margin-inline-start:auto}
+.btn{width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;background:var(--pr);color:var(--onpr);font:700 15px Cairo;cursor:pointer}
+.split{font-size:12px;color:var(--mut);margin-top:8px}
+.foot{text-align:center;color:var(--mut);font-size:11px;padding:20px}
+.view{display:none}.view.on{display:block}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="logo"><span data-t="appName">مرافئ</span><small data-t="tagline">حيث تجد الحكايات مرفأها</small></div>
+  <div class="tools"><button id="lang">EN</button><button id="theme">◐</button></div>
+</header>
+
+<section class="view on" id="v-home">
+  <div class="quote"><h4 data-t="dq">اقتباس اليوم</h4><p data-t="q">«الكتابة مرفأٌ نعود إليه كلما أضاعتنا العواصف.»</p><span data-t="qa">— مرافئ</span></div>
+  <div class="chips">
+    <div class="chip on" data-t="all">الكل</div><div class="chip" data-t="poetry">الشعر</div><div class="chip" data-t="lit">الأدب</div><div class="chip" data-t="arts">الفنون</div><div class="chip" data-t="arts2">المقالات</div>
+  </div>
+  <h3 data-t="trend">الأكثر رواجاً</h3>
+  <div class="row" id="books"></div>
+  <h3 data-t="comp">مسابقة الشهر</h3>
+  <div class="card"><h5 data-t="compT">مسابقة القصة القصيرة</h5><p data-t="compD">شارك بنصّك قبل نهاية الشهر وربح نشر كتابك مجاناً.</p></div>
+  <h3 data-t="authors">كتّاب مميزون</h3>
+  <div class="card"><h5>أمل الحارثي <span class="badge" data-t="gold">داعم ذهبي</span></h5><p data-t="aD">شاعرة · ١٢ كتاباً · ٣٫٢ ألف متابع</p></div>
+</section>
+
+<section class="view" id="v-market"><h3 data-t="market">سوق الكتب</h3><div class="row" id="books2" style="flex-wrap:wrap"></div></section>
+<section class="view" id="v-lib"><h3 data-t="lib">مكتبتي</h3><div class="card"><h5 data-t="libE">لا توجد كتب بعد</h5><p data-t="libD">الكتب التي تشتريها تُفتح هنا تلقائياً بعد تأكيد الدفع.</p></div></section>
+<section class="view" id="v-prof"><h3 data-t="prof">الملف الشخصي</h3>
+  <div class="card"><h5 data-t="pub">انشر كتاباً أو مقالاً</h5><p data-t="pubD">ارفع PDF وغلافاً، حدّد السعر، وتابع أرباحك.</p></div>
+  <div class="card"><h5 data-t="gs">داعم ذهبي — ٥٠ ج.م</h5><p data-t="gsD">شارة اختيارية، منفصلة عن توثيق الهوية.</p></div>
+</section>
+<div class="foot" data-t="pw">Powered by SHAHINO AI</div>
+</div>
+
+<nav>
+  <button class="on" data-v="home"><i>⌂</i><span data-t="home">الرئيسية</span></button>
+  <button data-v="market"><i>❖</i><span data-t="market">السوق</span></button>
+  <button data-v="lib"><i>▤</i><span data-t="lib">مكتبتي</span></button>
+  <button data-v="prof"><i>☺</i><span data-t="prof">حسابي</span></button>
+</nav>
+
+<div class="sheet" id="sheet"><div class="panel">
+  <h4 id="sT"></h4>
+  <div class="split" id="sSplit"></div>
+  <h5 style="margin:14px 0 0" data-t="payWith">اختر طريقة الدفع</h5>
+  <div class="m on">InstaPay<em data-t="auto">تحقق تلقائي</em></div>
+  <div class="m">Vodafone Cash<em data-t="manual">مراجعة الإيصال</em></div>
+  <div class="m">Orange Cash<em data-t="manual">مراجعة الإيصال</em></div>
+  <div class="m"><span data-t="bank">تحويل بنكي</span><em data-t="manual">مراجعة الإيصال</em></div>
+  <button class="btn" id="close" data-t="cont">متابعة الدفع</button>
+</div></div>
+
+<script>
+var D={ar:{appName:'مرافئ',tagline:'حيث تجد الحكايات مرفأها',dq:'اقتباس اليوم',q:'«الكتابة مرفأٌ نعود إليه كلما أضاعتنا العواصف.»',qa:'— مرافئ',all:'الكل',poetry:'الشعر',lit:'الأدب',arts:'الفنون',arts2:'المقالات',trend:'الأكثر رواجاً',comp:'مسابقة الشهر',compT:'مسابقة القصة القصيرة',compD:'شارك بنصّك قبل نهاية الشهر وربح نشر كتابك مجاناً.',authors:'كتّاب مميزون',gold:'داعم ذهبي',aD:'شاعرة · ١٢ كتاباً · ٣٫٢ ألف متابع',market:'سوق الكتب',lib:'مكتبتي',libE:'لا توجد كتب بعد',libD:'الكتب التي تشتريها تُفتح هنا تلقائياً بعد تأكيد الدفع.',prof:'حسابي',pub:'انشر كتاباً أو مقالاً',pubD:'ارفع PDF وغلافاً، حدّد السعر، وتابع أرباحك.',gs:'داعم ذهبي — ٥٠ ج.م',gsD:'شارة اختيارية، منفصلة عن توثيق الهوية.',pw:'Powered by SHAHINO AI',home:'الرئيسية',payWith:'اختر طريقة الدفع',auto:'تحقق تلقائي',manual:'مراجعة الإيصال',bank:'تحويل بنكي',cont:'متابعة الدفع',free:'مجاني',egp:'ج.م',buy:'شراء: ',net:'عمولة المنصة ١٥٪ — صافي الكاتب: '},
+en:{appName:'MARAFE’',tagline:'Where Stories Find Their Harbor',dq:'Daily quote',q:'“Writing is a harbor we return to whenever storms lose us.”',qa:'— MARAFE’',all:'All',poetry:'Poetry',lit:'Literature',arts:'Arts',arts2:'Articles',trend:'Trending',comp:'Competition of the month',compT:'Short story contest',compD:'Submit your text before month-end and win free publishing.',authors:'Featured authors',gold:'Gold Supporter',aD:'Poet · 12 books · 3.2K followers',market:'Marketplace',lib:'My library',libE:'No books yet',libD:'Books you buy unlock here automatically once payment is confirmed.',prof:'Profile',pub:'Publish a book or article',pubD:'Upload a PDF and cover, set a price, track your earnings.',gs:'Gold Supporter — 50 EGP',gsD:'Optional badge, separate from identity verification.',pw:'Powered by SHAHINO AI',home:'Home',payWith:'Choose a payment method',auto:'Auto-verified',manual:'Receipt review',bank:'Bank transfer',cont:'Continue to pay',free:'Free',egp:'EGP',buy:'Buy: ',net:'Platform fee 15% — author net: '}};
+var B=[{t:{ar:'ليالي المرفأ',en:'Harbor Nights'},a:{ar:'أمل الحارثي',en:'Amal Al-Harthy'},p:60,c:'b1'},{t:{ar:'ديوان الرمال',en:'Diwan of Sands'},a:{ar:'خالد منصور',en:'Khaled Mansour'},p:0,c:'b2'},{t:{ar:'حكايات النيل',en:'Nile Tales'},a:{ar:'سلمى عادل',en:'Salma Adel'},p:45,c:'b3'},{t:{ar:'قناديل',en:'Lanterns'},a:{ar:'يوسف رمزي',en:'Youssef Ramzy'},p:80,c:'b4'}];
+var L='ar',root=document.documentElement;
+function T(k){return D[L][k]}
+function card(b,i){var pr=b.p?'<span class="price">'+b.p+' '+T('egp')+'</span>':'<span class="free">'+T('free')+'</span>';return '<div class="book" data-i="'+i+'"><div class="cover '+b.c+'">'+b.t[L]+'</div><b>'+b.t[L]+'</b><small>'+b.a[L]+'</small><div class="meta"><span>★ 4.'+(5+i)+'</span>'+pr+'</div></div>'}
+function render(){root.lang=L;root.dir=L=='ar'?'rtl':'ltr';document.getElementById('lang').textContent=L=='ar'?'EN':'ع';
+ document.querySelectorAll('[data-t]').forEach(function(e){e.textContent=T(e.dataset.t)});
+ var h=B.map(card).join('');document.getElementById('books').innerHTML=h;document.getElementById('books2').innerHTML=h;document.title=T('appName')}
+document.getElementById('lang').onclick=function(){L=L=='ar'?'en':'ar';render()};
+document.getElementById('theme').onclick=function(){var d=root.getAttribute('data-theme');var cur=d||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');root.setAttribute('data-theme',cur=='dark'?'light':'dark')};
+document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on')});document.getElementById('v-'+b.dataset.v).classList.add('on')}});
+document.addEventListener('click',function(e){var b=e.target.closest('.book');if(b){var k=B[b.dataset.i];if(!k.p)return;document.getElementById('sT').textContent=T('buy')+k.t[L];var n=(k.p*.85).toFixed(2);document.getElementById('sSplit').textContent=T('net')+n+' '+T('egp');document.getElementById('sheet').classList.add('show')}
+ var m=e.target.closest('.m');if(m){document.querySelectorAll('.m').forEach(function(x){x.classList.remove('on')});m.classList.add('on')}});
+document.getElementById('close').onclick=function(){document.getElementById('sheet').classList.remove('show')};
+document.getElementById('sheet').onclick=function(e){if(e.target.id=='sheet')e.currentTarget.classList.remove('show')};
+render();
+</script>
+</body>
+</html>
